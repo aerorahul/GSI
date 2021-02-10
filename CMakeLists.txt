@@ -114,12 +114,6 @@ project(GSI)
 # Set Host specific flags and options
   setHOST()
 
-  if(FIND_HDF5_HL)
-    find_package(HDF5 COMPONENTS C HL)
-  elseif(FIND_HDF5)
-    find_package(HDF5)
-  endif()
-
   MESSAGE(${CMAKE_CURRENT_SOURCE_DIR})
   # make sure that the default is a RELEASE
   if (NOT CMAKE_BUILD_TYPE)
@@ -174,8 +168,6 @@ project(GSI)
     find_package(Baselibs REQUIRED)
   else()
     find_package( NetCDF COMPONENTS C Fortran REQUIRED)
-    find_package( ZLIB )
-    find_package( CURL )
   endif()
   if(( NOT HOST-WCOSS_D ) AND ( NOT HOST-WCOSS_C ) AND ( NOT HOST-Gaea ) ) 
     message(" trying to find lapack, ${host}")
